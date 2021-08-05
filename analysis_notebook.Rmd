@@ -45,5 +45,24 @@ ggplotly(plot)
 
 plot(ad_treatment)
 
+
+
+ggplot(ad_treatment) +
+ aes(x = drug_treatment, y = mmse, fill = sex) +
+ geom_boxplot() +
+ scale_fill_hue() +
+ theme_minimal() +
+ facet_grid(vars(drug_treatment), vars())
+
+
+
+```
+
+
+
+```{r}
+library(dygraphs)
+dygraph(nhtemp, main = "New Haven Temperatures") %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
 ```
 
