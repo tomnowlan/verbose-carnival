@@ -40,3 +40,10 @@ ggplotly(plot)
 
 ```
 
+
+```{r}
+
+plot(ad_treatment)
+
+```
+
