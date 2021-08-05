@@ -1,0 +1,42 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is my import procedure         
+
+```{r}
+
+library(readxl)
+library(tidyverse)
+
+
+url <- "https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/ad_treatment.xlsx"
+destfile <- "ad_treatment.xlsx"
+curl::curl_download(url, destfile)
+ad_treatment <- read_excel(destfile)
+
+
+
+```
+
+
+This is my awesome data Viz of survey results for verbose carnival
+
+```{r}
+
+library(ggplot2)
+library(plotly)
+
+
+plot <- ggplot(ad_treatment) +
+ aes(x = drug_treatment, y = mmse, fill = sex) +
+ geom_boxplot() +
+ scale_fill_gradient() +
+ theme_minimal() +
+ facet_grid(vars(), vars(sex))
+
+ggplotly(plot)
+
+```
+
